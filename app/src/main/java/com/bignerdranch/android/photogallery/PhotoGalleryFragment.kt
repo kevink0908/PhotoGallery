@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import api.FlickrApi
 import com.bignerdranch.android.photogallery.databinding.FragmentPhotoGalleryBinding
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.create
 
 private const val TAG = "PhotoGalleryFragment"
 

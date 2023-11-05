@@ -3,7 +3,7 @@ package api
 import FlickrResponse
 import retrofit2.http.GET
 
-private const val API_KEY = "yourApiKeyHere"
+private const val API_KEY = "145d5dc4fdff3edb562f0926ad2b359d"
 
 interface FlickrApi {
     @GET(

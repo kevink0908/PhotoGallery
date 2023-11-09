@@ -36,11 +36,24 @@ class PhotoGalleryViewModel : ViewModel() {
                 }
             }
         }
+
+        viewModelScope.launch {
+            preferencesRepository.isPolling.collect { isPolling ->
+                _uiState.update { it.copy(isPolling = isPolling) }
+            }
+        }
     }
 
     fun setQuery(query: String) {
         viewModelScope.launch { preferencesRepository.setStoredQuery(query) }
     }
+
+    fun toggleIsPolling() {
+        viewModelScope.launch {
+            preferencesRepository.setPolling(!uiState.value.isPolling)
+        }
+    }
+
     private suspend fun fetchGalleryItems(query: String): List<GalleryItem> {
         return if (query.isNotEmpty()) {
             photoRepository.searchPhotos(query)
